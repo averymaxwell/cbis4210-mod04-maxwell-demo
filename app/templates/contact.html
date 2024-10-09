@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <h1 class="text-center display-4 mb-5">Get In Touch With Us</h1>
+
+    <!-- Unified Contact Info Section -->
+    <div class="row mb-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            <i class="bi bi-person-circle" style="font-size: 3rem; color: #ff85a2;"></i>
+            <h5 class="mt-3">Owner: Avery Maxwell</h5>
+            <p><i class="bi bi-telephone" style="font-size: 1.5rem; color: #ff85a2;"></i> 678-555-1234</p>
+            <p><i class="bi bi-geo-alt" style="font-size: 1.5rem; color: #ff85a2;"></i> 1234 Happy St, Milledgeville, GA 31061</p>
+            <p><i class="bi bi-envelope" style="font-size: 1.5rem; color: #ff85a2;"></i> <a href="mailto:felinefriends@petstore.com">felinefriends@petstore.com</a></p>
+            <p class="mt-4">We are always here to assist you with any inquiries or concerns about your cat's needs or our services. Feel free to reach out to us directly or through the form below.</p>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Send Us a Message</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-pink btn-lg">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!-- Custom CSS for icons and buttons -->
+<style>
+    .bi {
+        margin-bottom: 10px;
+    }
+
+    .btn-pink {
+        background-color: lightpink;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-pink:hover {
+        background-color: #ff85a2;
+        color: white;
+    }
+
+    a {
+        color: #ff85a2;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

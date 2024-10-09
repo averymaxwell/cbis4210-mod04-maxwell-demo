@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <h1 class="text-center display-4 mb-5">Explore Our Premium Products</h1>
+
+    <!-- Product Section Intro -->
+    <div class="row text-center mb-5">
+        <div class="col-md-8 offset-md-2">
+            <p class="lead">At Feline Friends Pet Store, we are committed to providing only the safest and highest quality products for your feline companions. From essential supplies to fun toys, we’ve got everything your cat needs!</p>
+        </div>
+    </div>
+
+    <!-- Product cards with hover effects -->
+    <div class="row">
+        <!-- Cat Litter Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm product-card">
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                    <span class="badge bg-success position-absolute top-0 start-0 m-2">New Arrival</span>
+                </div>
+                <img src="/static/assets/p3.jpg" class="card-img-top" alt="Cat Litter" style="max-height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Cat Litter</h5>
+                    <h6 class="text-muted">Price: $30</h6>
+                    <p class="card-text">Our top-selling high-quality cat litter ensures freshness and cleanliness for your home.</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="#" class="btn btn-pink btn-sm w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scratcher Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm product-card">
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                    <span class="badge bg-warning position-absolute top-0 start-0 m-2">Best Seller</span>
+                </div>
+                <img src="/static/assets/p1.jpg" class="card-img-top" alt="Scratcher" style="max-height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Scratcher</h5>
+                    <h6 class="text-muted">Price: $15</h6>
+                    <p class="card-text">Protect your furniture with our durable scratcher, designed for healthy claws and fun!</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="#" class="btn btn-pink btn-sm w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catnip Card -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm product-card">
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">Popular</span>
+                </div>
+                <img src="/static/assets/p2.png" class="card-img-top" alt="Catnip" style="max-height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Organic Catnip</h5>
+                    <h6 class="text-muted">Price: $10</h6>
+                    <p class="card-text">Treat your cat to organic, high-quality catnip for hours of excitement and fun!</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a href="#" class="btn btn-pink btn-sm w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Custom CSS for hover effects -->
+<style>
+    .product-card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s ease;
+    }
+
+    /* Pink button styles */
+    .btn-pink {
+        background-color: lightpink;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-pink:hover {
+        background-color: #ff85a2; /* Darker shade of pink on hover */
+        color: white;
+    }
+</style>
+
+{% endblock %}
