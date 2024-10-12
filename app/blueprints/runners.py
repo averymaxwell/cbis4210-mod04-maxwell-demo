@@ -21,7 +21,6 @@ def runner():
     # Handle GET request to display all runners
     cursor.execute('SELECT * FROM runners')
     all_runners = cursor.fetchall()
-    print("Fetched Runners:", all_runners)  # Print to check data
 
     return render_template('runners.html', all_runners=all_runners)
 
