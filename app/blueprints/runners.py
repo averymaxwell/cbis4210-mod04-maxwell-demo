@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
-from app.db_connect import get_db
+from app.db_connect import get_db  # Ensure this path is correct
 
 runners = Blueprint('runners', __name__)
 
@@ -11,19 +11,18 @@ def runner():
 
     # Handle POST request to add a new runner
     if request.method == 'POST':
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
-
-        # Insert the new runner into the database
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
         cursor.execute('INSERT INTO runners (first_name, last_name) VALUES (%s, %s)', (first_name, last_name))
         db.commit()
-
         flash('New runner added successfully!', 'success')
         return redirect(url_for('runners.runner'))
 
     # Handle GET request to display all runners
     cursor.execute('SELECT * FROM runners')
     all_runners = cursor.fetchall()
+    print("Fetched Runners:", all_runners)  # Print to check data
+
     return render_template('runners.html', all_runners=all_runners)
 
 
@@ -34,8 +33,8 @@ def update_runner(runner_id):
 
     if request.method == 'POST':
         # Update the runner's details
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
 
         cursor.execute('UPDATE runners SET first_name = %s, last_name = %s WHERE runner_id = %s',
                        (first_name, last_name, runner_id))
@@ -48,7 +47,6 @@ def update_runner(runner_id):
     cursor.execute('SELECT * FROM runners WHERE runner_id = %s', (runner_id,))
     runner = cursor.fetchone()
     return render_template('update_runner.html', runner=runner)
-
 
 @runners.route('/delete_runner/<int:runner_id>', methods=['POST'])
 def delete_runner(runner_id):

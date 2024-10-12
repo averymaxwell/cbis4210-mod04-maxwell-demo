@@ -31,21 +31,27 @@
             </tr>
         </thead>
         <tbody>
-            {% for runner in all_runners %}
-            <tr>
-                <td>{{ runner.runner_id }}</td>
-                <td>{{ runner.first_name }}</td>
-                <td>{{ runner.last_name }}</td>
-                <td>
-                    <!-- Update button -->
-                    <a href="{{ url_for('runners.update_runner', runner_id=runner.runner_id) }}" class="btn btn-warning btn-sm">Update</a>
-                    <!-- Delete button -->
-                    <form action="{{ url_for('runners.delete_runner', runner_id=runner.runner_id) }}" method="POST" style="display:inline;">
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this runner?');">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
+            {% if all_runners %}
+                {% for runner in all_runners %}
+                <tr>
+                    <td>{{ runner.runner_id }}</td>
+                    <td>{{ runner.first_name }}</td>
+                    <td>{{ runner.last_name }}</td>
+                    <td>
+                        <!-- Update button -->
+                        <a href="{{ url_for('runners.update_runner', runner_id=runner.runner_id) }}" class="btn btn-warning btn-sm">Update</a>
+                        <!-- Delete button -->
+                        <form action="{{ url_for('runners.delete_runner', runner_id=runner.runner_id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this runner?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4" class="text-center">No runners available.</td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 </div>
